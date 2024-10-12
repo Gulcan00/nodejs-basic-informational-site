@@ -6,14 +6,14 @@ app.set('view engine', 'ejs');
 app.get('/', (_, res) => res.render('pages/index'));
 
 app.get('/about', (_, res) =>
-  res.sendFile('./about.html', { root: __dirname })
+  res.render('pages/about', { title: 'About Lily' })
 );
 
 app.get('/contact-me', (_, res) =>
-  res.sendFile('./contact-me.html', { root: __dirname })
+  res.render('pages/contact-me', { title: 'Contact Me' })
 );
 
-app.get('*', (_, res) => res.sendFile('./404.html', { root: __dirname }));
+app.get('*', (_, res) => res.render('pages/404', { title: 'Not Found' }));
 
 const PORT = 3000;
 
